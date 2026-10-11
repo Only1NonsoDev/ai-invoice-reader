@@ -2,6 +2,14 @@
 
 A portfolio demo of a small-business **accounts payable (AP)** workflow. Invoices arrive in an inbox, an AI model reads them, the app checks them and explains any problems, a person approves or rejects them, and only approved invoices can be exported to QuickBooks Online or Xero.
 
+**Live demo:** https://ai-invoice-reader.vercel.app (works on phone and desktop, no sign-up, no API key needed)
+
+<p>
+  <img src="screenshots/desktop-light-inbox.png" alt="Invoice inbox with statuses and due-soon badges" width="62%">
+  <img src="screenshots/phone-dark-review.png" alt="Review screen on phone in dark mode" width="30%">
+</p>
+<img src="screenshots/desktop-dark-dashboard.png" alt="Dashboard with spend by vendor and category" width="62%">
+
 > **Portfolio demo: all invoices, vendors and data are fictional.** Nothing is sent to QuickBooks, Xero or any bank.
 
 It is a fully static site (Next.js 15, React 19, TypeScript, `output: "export"`). There is no server, API route or database.
