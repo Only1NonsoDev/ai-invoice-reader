@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 880" width="800" height="880" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="Sample invoice HF-7731 from Hartley Office Furniture Ltd">
+<rect width="800" height="880" fill="#ffffff"/>
+<rect width="800" height="10" fill="#2b6b4f"/>
+<rect x="48" y="48" width="44" height="44" rx="10" fill="#2b6b4f"/>
+<text x="70" y="78" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">H</text>
+<text x="104" y="66" font-size="19" font-weight="700" fill="#1d2433" text-anchor="start">Hartley Office Furniture Ltd</text>
+<text x="104" y="86" font-size="12" font-weight="400" fill="#566074" text-anchor="start">18 Canal Wharf</text>
+<text x="104" y="102" font-size="12" font-weight="400" fill="#566074" text-anchor="start">Birmingham B1 2JT, United Kingdom</text>
+<text x="104" y="118" font-size="12" font-weight="400" fill="#566074" text-anchor="start">VAT Reg. GB 311 5502 88</text>
+<text x="752" y="74" font-size="32" font-weight="700" fill="#2b6b4f" text-anchor="end" letter-spacing="3">INVOICE</text>
+<line x1="48" y1="150" x2="752" y2="150" stroke="#dfe3ea"/>
+<text x="48" y="180" font-size="11" font-weight="700" fill="#2b6b4f" text-anchor="start" letter-spacing="1.5">BILL TO</text>
+<text x="48" y="202" font-size="14" font-weight="700" fill="#1d2433" text-anchor="start">Harcourt &amp; Daughters Solicitors</text>
+<text x="48" y="220" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">12 Albion Street</text>
+<text x="48" y="238" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">Manchester M1 4BT</text>
+<text x="520" y="180" font-size="13" font-weight="400" fill="#566074" text-anchor="start">Invoice no.</text>
+<text x="752" y="180" font-size="13" font-weight="700" fill="#1d2433" text-anchor="end">HF-7731</text>
+<text x="520" y="204" font-size="13" font-weight="400" fill="#566074" text-anchor="start">Issue date</text>
+<text x="752" y="204" data-slot="issueDate" data-fmt="dmy" font-size="13" font-weight="700" fill="#1d2433" text-anchor="end">21 Sep 2026</text>
+<text x="520" y="228" font-size="13" font-weight="400" fill="#566074" text-anchor="start">Due date</text>
+<text x="752" y="228" data-slot="dueDate" data-fmt="dmy" font-size="13" font-weight="700" fill="#1d2433" text-anchor="end">21 Oct 2026</text>
+<text x="520" y="252" font-size="13" font-weight="400" fill="#566074" text-anchor="start">PO number</text>
+<text x="752" y="252" font-size="13" font-weight="700" fill="#1d2433" text-anchor="end">PO-4410</text>
+<text x="520" y="276" font-size="13" font-weight="400" fill="#566074" text-anchor="start">Currency</text>
+<text x="752" y="276" font-size="13" font-weight="700" fill="#1d2433" text-anchor="end">GBP</text>
+<rect x="48" y="300" width="704" height="34" fill="#2b6b4f"/>
+<text x="60" y="322" font-size="11" font-weight="700" fill="#fff" text-anchor="start" letter-spacing="1">DESCRIPTION</text>
+<text x="480" y="322" font-size="11" font-weight="700" fill="#fff" text-anchor="end" letter-spacing="1">QTY</text>
+<text x="600" y="322" font-size="11" font-weight="700" fill="#fff" text-anchor="end" letter-spacing="1">UNIT PRICE</text>
+<text x="740" y="322" font-size="11" font-weight="700" fill="#fff" text-anchor="end" letter-spacing="1">AMOUNT</text>
+<text x="60" y="361" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">Ergonomic task chair</text>
+<text x="480" y="361" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">4</text>
+<text x="600" y="361" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">£189.00</text>
+<text x="740" y="361" font-size="14" font-weight="700" fill="#1d2433" text-anchor="end">£756.00</text>
+<rect x="48" y="378" width="704" height="44" fill="#f5f7fa"/>
+<text x="60" y="405" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">Height-adjustable desk</text>
+<text x="480" y="405" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">2</text>
+<text x="600" y="405" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">£345.00</text>
+<text x="740" y="405" font-size="14" font-weight="700" fill="#1d2433" text-anchor="end">£690.00</text>
+<text x="60" y="449" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">Delivery and assembly</text>
+<text x="480" y="449" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">1</text>
+<text x="600" y="449" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">£60.00</text>
+<text x="740" y="449" font-size="14" font-weight="700" fill="#1d2433" text-anchor="end">£60.00</text>
+<line x1="48" y1="466" x2="752" y2="466" stroke="#dfe3ea"/>
+<text x="520" y="500" font-size="14" font-weight="400" fill="#566074" text-anchor="start">Subtotal</text>
+<text x="740" y="500" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">£1,506.00</text>
+<text x="520" y="526" font-size="14" font-weight="400" fill="#566074" text-anchor="start">VAT (20%)</text>
+<text x="740" y="526" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">£301.20</text>
+<rect x="506" y="534" width="246" height="42" fill="#2b6b4f" opacity="0.1"/>
+<text x="520" y="562" font-size="16" font-weight="700" fill="#1d2433" text-anchor="start">Total</text>
+<text x="740" y="562" font-size="18" font-weight="700" fill="#2b6b4f" text-anchor="end">£1,807.20</text>
+<text x="48" y="628" font-size="12" font-weight="400" fill="#566074" text-anchor="start">Payment terms: 30 days net. Bank transfer to Sort 40-22-17, Acc 5530 1294.</text>
+<text x="48" y="650" font-size="12" font-weight="400" fill="#566074" text-anchor="start">Please quote the invoice number with your payment.</text>
+<line x1="48" y1="810" x2="752" y2="810" stroke="#dfe3ea"/>
+<text x="400" y="838" font-size="11" font-weight="400" fill="#7a8394" text-anchor="middle">Hartley Office Furniture Ltd · Registered in England No. 05512093</text>
+</svg>

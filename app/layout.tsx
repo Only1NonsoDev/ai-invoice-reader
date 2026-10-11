@@ -3,14 +3,15 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AI Invoice Reader",
+  title: "Invoice Desk: AI accounts payable demo",
   description:
-    "Drop in an invoice and get clean, checked data back. Try the built-in samples with no API key, or bring your own OpenAI or Anthropic key.",
+    "Portfolio demo of an accounts payable workflow: capture, extract, check, approve, export. Fictional data, no API key needed.",
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
   colorScheme: "light dark",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#eef0f7" },

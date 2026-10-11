@@ -1,86 +1,101 @@
-# AI Invoice Reader
+# Invoice Desk: an AI accounts payable demo
 
-A portfolio demo that reads an invoice (PDF or image) with a vision AI model, pulls out the vendor, dates, line items and totals, and then **double-checks the maths** so you can spot mistakes before exporting to CSV or JSON.
+A portfolio demo of a small-business **accounts payable (AP)** workflow. Invoices arrive in an inbox, an AI model reads them, the app checks them and explains any problems, a person approves or rejects them, and only approved invoices can be exported to QuickBooks Online or Xero.
 
-It is a fully static site (Next.js 15 + React 19 + TypeScript, `output: "export"`). There is no server, no API route and no database.
+> **Portfolio demo: all invoices, vendors and data are fictional.** Nothing is sent to QuickBooks, Xero or any bank.
 
-## Try it without any setup
+It is a fully static site (Next.js 15, React 19, TypeScript, `output: "export"`). There is no server, API route or database.
 
-Click one of the three built-in sample invoices (UK supplier in GBP with VAT, US SaaS bill in USD with sales tax, Canadian contractor in CAD with HST). Their results are precomputed and clearly labelled **Demo mode**: no AI call is made and no key is needed. The Canadian sample deliberately has no due date, so you can see a warning.
+## The workflow
+
+**Capture → Extract → Check → Approve → Export**
+
+1. **Capture.** Ten fictional sample invoices (UK in GBP, US in USD, Canada in CAD) are already in the inbox. With your own AI key you can also drop in several PDFs or photos at once; each file becomes its own queue item with its own loading and error state.
+2. **Extract.** A vision model reads vendor, invoice and PO number, dates, line items and totals, plus how confident it is in each field. The samples use precomputed results, so no key is needed.
+3. **Check.** Pure functions re-do the work and explain each result in plain English (pass, warning or fail):
+   - line maths (quantity × price = amount), lines add up to the subtotal, subtotal + tax = total
+   - due date present; overdue or due within 7 days
+   - duplicates (same vendor + invoice number, or same vendor + same total)
+   - unknown vendor (not on the known-vendor list in Settings)
+   - tax rate sanity: UK VAT 20% / 5% / 0; Canada GST 5%, HST 13% / 15%, or GST + PST; US sales tax 0–11%
+   - PO number missing; any field under 80% confidence; category and cost centre chosen
+4. **Approve.** Approve, Flag or Reject. Flag and Reject need a reason. If the total is above the threshold (default 5,000, in the invoice's own currency) Approve moves it to **Needs manager approval**, and **Approve as manager** finishes it. Every decision records who, what, the note and the time, and each invoice has an activity log (for example "Extracted by AI", "Edited total from 573.6 to 600", "Approved by You").
+5. **Export.** Only **Approved** invoices export. After a download they become **Exported** (and the log says so).
+
+Statuses: New, Needs review, Needs manager approval, Approved, Flagged, Rejected, Exported.
+
+The sample set deliberately includes a duplicate, an unknown vendor, an overdue bill, one due in 4 days, a wrong UK VAT rate, a missing PO, a maths mismatch, one over the threshold and a low-confidence field. Seed due dates are stored as day offsets and recomputed against today's date, so "overdue" and "due soon" always look right.
+
+## Screens
+
+- **Inbox:** status filter tabs, search, sort, due-soon / overdue highlighting, batch upload.
+- **Review:** the document next to editable fields (stacked on a phone), a confidence indicator per field, category and cost-centre dropdowns, notes, checks, and the activity log.
+- **Dashboard:** total to pay this week grouped by currency (never converted or added together), overdue and pending counts, amount by vendor and by category, and a **time-saved estimate** with editable assumptions (default 4 minutes by hand vs 30 seconds to review). It is an estimate, not a measurement.
+- **Export:** QuickBooks CSV, Xero CSV, JSON, with an empty state when nothing is approved.
+- **Settings / How it works:** approval threshold, known vendors, AI provider and key, **Reset demo**.
+
+## Export formats
+
+| File | Columns (one row per line item) |
+| --- | --- |
+| QuickBooks Online bill CSV | `BillNo, Supplier, BillDate, DueDate, Terms, Location, Memo, Account, LineDescription, LineAmount, LineTaxCode, Currency` |
+| Xero bills CSV | `*ContactName, EmailAddress, *InvoiceNumber, Reference, *InvoiceDate, *DueDate, Total, Description, *Quantity, *UnitAmount, *AccountCode, *TaxType, TrackingName1, TrackingOption1, Currency` |
+| JSON | `{ exportedAt, count, invoices: [...] }` including category, cost centre and the approval record |
+
+CSV files start with a UTF-8 byte-order mark so Excel reads names like "Café" correctly; JSON does not. In QuickBooks, `Location` is the cost centre and `Terms` is worked out as "Net N". In Xero the cost centre goes into tracking category 1 and `Reference` holds the PO number.
+
+Honest limits: dates are written as `YYYY-MM-DD` (your import screen may expect your regional format), and tax codes, tax types and account codes are sensible defaults you will probably need to map to your own chart of accounts.
+
+## Using your own invoices
+
+1. Open **Settings**, choose **OpenAI** (`gpt-4o-mini`) or **Anthropic** (`claude-sonnet-5-5`) and paste your key.
+2. In the **Inbox**, drop one or more PDFs or images. Without a key you get a clear message instead.
+3. Open each item, fix anything flagged, then approve.
+
+With Anthropic, PDFs are sent as-is. With OpenAI, page 1 is drawn to an image in your browser first. Only page 1 is read.
+
+## How your API key and data are handled
+
+- The key lives in React state only. It is **never** written to local storage, cookies, the URL or any file, and is gone when you refresh.
+- The browser calls OpenAI or Anthropic directly. Use a key with a spending limit. Your invoice goes to the provider you picked, under their terms.
+- Demo state (invoices, statuses, edits, logs, settings) is saved in your browser's local storage under a versioned key (`ai-invoice-reader:ap-demo:v1`). Uploaded file bytes are **not** saved. A small preview image is kept only if it is under about 200 KB; otherwise the preview is shown for the current visit only and the app says so after a reload. **Reset demo** (with a confirmation) wipes it all.
+
+## Limitations
+
+- Single user: "You" is also the manager. There are no real accounts or permissions.
+- No currency conversion. The approval threshold compares the number in the invoice's own currency.
+- Extraction can be wrong; that is why everything is editable and checked. Per-field confidence from live extraction is self-reported by the model.
+- Uploads that were still being read when the page closed come back as errors and must be uploaded again.
+- Tax checks are sanity checks, not tax advice (mixed-rate invoices can trigger a false alarm).
 
 ## Run it locally
 
-You need Node.js 20 or newer.
+Node.js 20 or newer.
 
 ```bash
 npm install
 npm run dev        # http://localhost:3000
-```
-
-Other commands:
-
-```bash
-npm test           # unit tests for validation, CSV/JSON export, and parsing model output
-npm run typecheck  # TypeScript check
-npm run build      # static site is written to ./out
-npm run start      # serve ./out locally
+npm test           # checks, workflow/threshold, exports, persistence, seed, stats
+npm run typecheck
+npm run build      # static site in ./out
+npm run start      # serve ./out
 npm run samples    # regenerate the sample invoice SVGs in public/samples
 ```
-
-## Using your own invoices
-
-1. Drop a PDF or image on the upload area.
-2. Choose **OpenAI** (`gpt-4o-mini`) or **Anthropic** (a Claude model) and paste your own API key.
-3. Press **Extract invoice**, review the result, fix anything that is flagged, and export.
-
-PDFs: with Anthropic the PDF is sent as-is. With OpenAI, page 1 is first drawn to an image in your browser using `pdfjs-dist`. Only page 1 is read.
-
-## How your API key is handled
-
-- The key is held in React state in the open tab, nothing else.
-- It is **never** written to `localStorage`, cookies, the URL or any file, and there is no server to send it to.
-- The browser calls OpenAI or Anthropic directly. (Anthropic requires the `anthropic-dangerous-direct-browser-access` header for this; the name is a reminder that keys in browser code can be seen by whoever is using that browser, which here is you.)
-- Refreshing or closing the tab erases it. Use a key with a spending limit, and never paste someone else's key into a page you don't trust.
-
-Your invoice is sent to the provider you picked, under their terms. Don't upload sensitive documents you aren't allowed to share.
-
-## What gets checked
-
-| Check | Passes when |
-| --- | --- |
-| Line items multiply correctly | quantity × unit price = amount on every line |
-| Line items add up to subtotal | the amounts sum to the subtotal |
-| Subtotal + tax equals total | the three figures agree |
-| Due date is present | a due date was found |
-
-One cent of rounding difference is allowed. Edit any value in the table and the checks re-run instantly; edited fields show "edited, was …" with an undo.
 
 ## Project layout
 
 ```
-app/          page, layout and global styles (design tokens, glass materials)
-components/   UI: upload, extracting skeleton, review table, stepper
-lib/          pure logic with tests: validation, money, parse, export, vision API calls, samples
-scripts/      generates the sample SVGs from lib/samples.ts
-public/samples/  the three fake invoices
+app/            layout and global styles (glass design tokens, light/dark, reduced motion/transparency/contrast)
+components/     App shell, Inbox, Review, Dashboard, ExportView, Settings, HowItWorks
+lib/            pure logic with tests: checks, workflow, state, stats, export, persist, seed, ingest, parse, vision
+scripts/        generates the sample SVGs from lib/seed.ts
+public/samples/ ten fake invoices (dates in them are rewritten at runtime to match "today")
 ```
 
 ## Deploy
 
-The build output is plain files in `out/`, so any static host works.
-
-**Vercel:** import the repository, keep the defaults (Next.js is detected). Because `output: "export"` is set, Vercel serves the static export.
-
-**Any static host (Netlify, Cloudflare Pages, S3, GitHub Pages):** run `npm run build` and upload the `out/` folder.
-
-If the site lives under a sub-path (for example `https://you.github.io/invoice-reader/`), set the base path when building:
+The output is plain files in `out/`, so any static host works (Vercel, Netlify, Cloudflare Pages, S3, GitHub Pages). Under a sub-path:
 
 ```bash
 NEXT_PUBLIC_BASE_PATH=/invoice-reader npm run build
 ```
-
-## Notes and limits
-
-- Models can misread documents. That is why the checks exist; always compare against the original.
-- Model names are constants in `lib/vision.ts` if you want to change them.
-- Samples are fictional; all names and addresses are made up.

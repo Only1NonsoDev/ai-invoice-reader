@@ -1,5 +1,5 @@
 import { toNumber } from "./money";
-import type { Invoice, LineItem } from "./types";
+import { FIELD_NAMES, type Confidence, type Invoice, type LineItem } from "./types";
 
 export class ParseError extends Error {}
 
@@ -80,6 +80,25 @@ function parseLine(raw: unknown): LineItem | null {
   };
 }
 
+const CONFIDENCE_ALIASES: Record<string, string> = {
+  invoice_number: "invoiceNumber",
+  issue_date: "issueDate",
+  due_date: "dueDate",
+  po_number: "poNumber",
+};
+
+/** Read the optional per-field confidence object; values outside 0..1 are dropped. */
+export function parseConfidence(raw: unknown): Confidence | undefined {
+  if (!isObj(raw)) return undefined;
+  const out: Confidence = {};
+  for (const [k, v] of Object.entries(raw)) {
+    const key = CONFIDENCE_ALIASES[k] ?? k;
+    const n = toNumber(v);
+    if ((FIELD_NAMES as readonly string[]).includes(key) && n !== null && n >= 0 && n <= 1) out[key as keyof Confidence] = n;
+  }
+  return Object.keys(out).length ? out : undefined;
+}
+
 /** Turn model output (string or already-parsed value) into a clean Invoice. */
 export function parseInvoice(output: unknown): Invoice {
   const data = typeof output === "string" ? extractJson(output) : output;
@@ -91,6 +110,7 @@ export function parseInvoice(output: unknown): Invoice {
   const invoice: Invoice = {
     vendor: str(pick(data, "vendor", "vendor_name", "supplier", "seller")),
     invoiceNumber: str(pick(data, "invoiceNumber", "invoice_number", "number", "invoice_no")),
+    poNumber: str(pick(data, "poNumber", "po_number", "purchase_order", "po")),
     issueDate: normalizeDate(pick(data, "issueDate", "issue_date", "date", "invoice_date")),
     dueDate: normalizeDate(pick(data, "dueDate", "due_date")),
     currency: normalizeCurrency(pick(data, "currency")),
@@ -99,6 +119,8 @@ export function parseInvoice(output: unknown): Invoice {
     tax: toNumber(pick(data, "tax", "tax_total", "vat")),
     total: toNumber(pick(data, "total", "grand_total", "amount_due")),
   };
+  const confidence = parseConfidence(pick(data, "confidence"));
+  if (confidence) invoice.confidence = confidence;
   const empty = !invoice.vendor && !invoice.invoiceNumber && lineItems.length === 0 && invoice.total === null;
   if (empty) throw new ParseError("No invoice details were found in that file. Is it an invoice?");
   return invoice;

@@ -1,25 +1,29 @@
 const STEPS = [
   {
-    title: "You give it an invoice",
-    body: "Drop in a PDF or a photo, or tap one of the three samples. Samples are pre-read, so they work without any setup.",
+    title: "Capture",
+    body: "Invoices land in the inbox. The ten samples are pre-read so everything works with no setup; with your own AI key you can drop in several PDFs or photos at once and each becomes a queue item.",
   },
   {
-    title: "A vision model reads it",
-    body: "For your own files, the page is sent to OpenAI or Anthropic using your key. The model returns the vendor, dates, line items and totals as structured data.",
+    title: "Extract",
+    body: "A vision model reads the vendor, number, PO, dates, line items and totals, and says how sure it is of each field. Fields under 80% are highlighted for a human look.",
   },
   {
-    title: "The maths gets checked",
-    body: "The app doesn't trust the model. It re-adds the lines, re-multiplies quantities and prices, and checks that subtotal plus tax equals the total.",
+    title: "Check",
+    body: "The app doesn't trust the model. It re-does the maths, checks tax rates for the UK, US and Canada, and looks for duplicates, unknown vendors, overdue bills and missing PO numbers. Each result explains itself in plain English.",
   },
   {
-    title: "You fix and export",
-    body: "Anything flagged is shown with the reason. Edit any value and the checks update instantly, then download CSV or JSON.",
+    title: "Approve",
+    body: "Approve, flag or reject, with a reason when you flag or reject. Totals above the threshold need a manager. Every edit and decision is logged with who and when.",
+  },
+  {
+    title: "Export",
+    body: "Only approved invoices export, as a QuickBooks Online or Xero bill-import CSV (or JSON). Afterwards they're marked Exported so nothing is posted twice.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="how" aria-labelledby="how-title">
+    <section className="how" aria-labelledby="how-title" data-testid="how-it-works">
       <h2 id="how-title">How it works</h2>
       <ol className="how-grid">
         {STEPS.map((s, i) => (
@@ -33,11 +37,15 @@ export default function HowItWorks() {
         ))}
       </ol>
       <div className="panel panel-regular privacy">
-        <h3>About your API key</h3>
+        <h3>About your data and API key</h3>
         <p>
-          This site is fully static: there is no server and no database. Your key lives only in this tab&apos;s memory, goes
-          straight from your browser to the provider you chose, and disappears when you refresh or close the tab. It is never
-          saved to local storage or cookies.
+          This site is fully static: there is no server and no database. Demo state (invoices, statuses, edits, logs and settings) is saved in this browser&apos;s local storage so it survives a reload; Reset demo wipes it. Your API key lives only in this tab&apos;s memory, goes straight from your browser to the provider you chose, and is never saved. Uploaded files are not stored: only a small preview image is kept, and only when it&apos;s small enough.
+        </p>
+      </div>
+      <div className="panel panel-regular privacy">
+        <h3>Limits to know about</h3>
+        <p>
+          No exchange rates: amounts in different currencies are shown side by side, never converted or added. The “manager” is also you, since this is a one-person demo. Nothing is sent to QuickBooks, Xero or any bank. AI extraction can be wrong, which is why every field is editable and checked.
         </p>
       </div>
     </section>

@@ -106,15 +106,34 @@ export function assetUrl(file: string): string {
   return `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/${file}`;
 }
 
-export function downloadText(filename: string, text: string, mime: string): void {
-  // CSV only: the BOM makes Excel read non-ASCII vendor names (e.g. "Café") as UTF-8.
-  // JSON must not have a BOM, or strict JSON parsers reject it.
-  const parts = mime.includes("csv") ? ["\uFEFF", text] : [text];
-  const blob = new Blob(parts, { type: mime });
+/** Shrink a preview to a small JPEG data URL so it can be kept in localStorage. Returns null if it can't be done. */
+export async function makeThumbnail(url: string, maxSide = 900): Promise<string | null> {
+  try {
+    const img = new Image();
+    img.src = url;
+    await img.decode();
+    const scale = Math.min(1, maxSide / Math.max(img.naturalWidth, img.naturalHeight, 1));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(img.naturalWidth * scale));
+    canvas.height = Math.max(1, Math.round(img.naturalHeight * scale));
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return null;
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    return canvas.toDataURL("image/jpeg", 0.6);
+  } catch {
+    return null;
+  }
+}
+
+/** Download a file built by lib/export (the CSV BOM is already part of the content). */
+export function downloadFile(file: { filename: string; mime: string; content: string }): void {
+  const blob = new Blob([file.content], { type: file.mime });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = filename;
+  a.download = file.filename;
   document.body.appendChild(a);
   a.click();
   a.remove();
