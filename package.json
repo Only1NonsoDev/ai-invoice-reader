@@ -1,0 +1,27 @@
+{
+  "name": "ai-invoice-reader",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio demo: extract and validate invoice data with a vision model, fully static.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx serve out",
+    "test": "tsx --test lib/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "samples": "tsx scripts/generate-samples.ts"
+  },
+  "dependencies": {
+    "next": "^15.1.0",
+    "pdfjs-dist": "^4.10.38",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 880" width="800" height="880" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Sample invoice INV-30871 from Northwind Cloud Analytics, Inc.">
+<rect width="800" height="880" fill="#ffffff"/>
+<rect width="800" height="10" fill="#5b3fd6"/>
+<rect x="48" y="48" width="44" height="44" rx="10" fill="#5b3fd6"/>
+<text x="70" y="78" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">N</text>
+<text x="104" y="66" font-size="19" font-weight="700" fill="#1d2433" text-anchor="start">Northwind Cloud Analytics, Inc.</text>
+<text x="104" y="86" font-size="12" font-weight="400" fill="#566074" text-anchor="start">500 Harbor View Dr, Suite 210</text>
+<text x="104" y="102" font-size="12" font-weight="400" fill="#566074" text-anchor="start">Seattle, WA 98101, USA</text>
+<text x="104" y="118" font-size="12" font-weight="400" fill="#566074" text-anchor="start">EIN 91-4402815</text>
+<text x="752" y="74" font-size="32" font-weight="700" fill="#5b3fd6" text-anchor="end" letter-spacing="3">INVOICE</text>
+<line x1="48" y1="150" x2="752" y2="150" stroke="#dfe3ea"/>
+<text x="48" y="180" font-size="11" font-weight="700" fill="#5b3fd6" text-anchor="start" letter-spacing="1.5">BILL TO</text>
+<text x="48" y="202" font-size="14" font-weight="700" fill="#1d2433" text-anchor="start">Lumen Coffee Roasters LLC</text>
+<text x="48" y="220" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">88 Pine Hollow Rd</text>
+<text x="48" y="238" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">Portland, OR 97205</text>
+<text x="520" y="180" font-size="13" font-weight="400" fill="#566074" text-anchor="start">Invoice no.</text>
+<text x="752" y="180" font-size="13" font-weight="700" fill="#1d2433" text-anchor="end">INV-30871</text>
+<text x="520" y="204" font-size="13" font-weight="400" fill="#566074" text-anchor="start">Issue date</text>
+<text x="752" y="204" font-size="13" font-weight="700" fill="#1d2433" text-anchor="end">Jun 1, 2025</text>
+<text x="520" y="228" font-size="13" font-weight="400" fill="#566074" text-anchor="start">Due date</text>
+<text x="752" y="228" font-size="13" font-weight="700" fill="#1d2433" text-anchor="end">Jun 30, 2025</text>
+<text x="520" y="252" font-size="13" font-weight="400" fill="#566074" text-anchor="start">Currency</text>
+<text x="752" y="252" font-size="13" font-weight="700" fill="#1d2433" text-anchor="end">USD</text>
+<rect x="48" y="300" width="704" height="34" fill="#5b3fd6"/>
+<text x="60" y="322" font-size="11" font-weight="700" fill="#fff" text-anchor="start" letter-spacing="1">DESCRIPTION</text>
+<text x="480" y="322" font-size="11" font-weight="700" fill="#fff" text-anchor="end" letter-spacing="1">QTY</text>
+<text x="600" y="322" font-size="11" font-weight="700" fill="#fff" text-anchor="end" letter-spacing="1">UNIT PRICE</text>
+<text x="740" y="322" font-size="11" font-weight="700" fill="#fff" text-anchor="end" letter-spacing="1">AMOUNT</text>
+<text x="60" y="361" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">Team plan, per seat (June)</text>
+<text x="480" y="361" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">25</text>
+<text x="600" y="361" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">$12.00</text>
+<text x="740" y="361" font-size="14" font-weight="700" fill="#1d2433" text-anchor="end">$300.00</text>
+<rect x="48" y="378" width="704" height="44" fill="#f5f7fa"/>
+<text x="60" y="405" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">API usage overage</text>
+<text x="480" y="405" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">1</text>
+<text x="600" y="405" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">$84.50</text>
+<text x="740" y="405" font-size="14" font-weight="700" fill="#1d2433" text-anchor="end">$84.50</text>
+<text x="60" y="449" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">Premium support</text>
+<text x="480" y="449" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">1</text>
+<text x="600" y="449" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">$150.00</text>
+<text x="740" y="449" font-size="14" font-weight="700" fill="#1d2433" text-anchor="end">$150.00</text>
+<rect x="48" y="466" width="704" height="44" fill="#f5f7fa"/>
+<text x="60" y="493" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">Extended data retention add-on</text>
+<text x="480" y="493" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">3</text>
+<text x="600" y="493" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">$20.00</text>
+<text x="740" y="493" font-size="14" font-weight="700" fill="#1d2433" text-anchor="end">$60.00</text>
+<line x1="48" y1="510" x2="752" y2="510" stroke="#dfe3ea"/>
+<text x="520" y="544" font-size="14" font-weight="400" fill="#566074" text-anchor="start">Subtotal</text>
+<text x="740" y="544" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">$594.50</text>
+<text x="520" y="570" font-size="14" font-weight="400" fill="#566074" text-anchor="start">Sales tax (8.25%)</text>
+<text x="740" y="570" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">$49.05</text>
+<rect x="506" y="578" width="246" height="42" fill="#5b3fd6" opacity="0.1"/>
+<text x="520" y="606" font-size="16" font-weight="700" fill="#1d2433" text-anchor="start">Total</text>
+<text x="740" y="606" font-size="18" font-weight="700" fill="#5b3fd6" text-anchor="end">$643.55</text>
+<text x="48" y="672" font-size="12" font-weight="400" fill="#566074" text-anchor="start">Net 30. Pay online at billing.northwind-analytics.example</text>
+<text x="48" y="694" font-size="12" font-weight="400" fill="#566074" text-anchor="start">Please quote the invoice number with your payment.</text>
+<line x1="48" y1="810" x2="752" y2="810" stroke="#dfe3ea"/>
+<text x="400" y="838" font-size="11" font-weight="400" fill="#7a8394" text-anchor="middle">Thank you for your business · Questions? billing@northwind-analytics.example</text>
+</svg>

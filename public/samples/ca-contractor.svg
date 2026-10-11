@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 880" width="800" height="880" font-family="Verdana, Geneva, sans-serif" role="img" aria-label="Sample invoice MP-1192 from Maple &amp; Pine Renovations Inc.">
+<rect width="800" height="880" fill="#ffffff"/>
+<rect width="800" height="10" fill="#a3361f"/>
+<rect x="48" y="48" width="44" height="44" rx="10" fill="#a3361f"/>
+<text x="70" y="78" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">M</text>
+<text x="104" y="66" font-size="19" font-weight="700" fill="#1d2433" text-anchor="start">Maple &amp; Pine Renovations Inc.</text>
+<text x="104" y="86" font-size="12" font-weight="400" fill="#566074" text-anchor="start">27 Birchmount Lane</text>
+<text x="104" y="102" font-size="12" font-weight="400" fill="#566074" text-anchor="start">Guelph, ON N1H 6J2, Canada</text>
+<text x="104" y="118" font-size="12" font-weight="400" fill="#566074" text-anchor="start">HST/GST No. 81234 5678 RT0001</text>
+<text x="752" y="74" font-size="32" font-weight="700" fill="#a3361f" text-anchor="end" letter-spacing="3">INVOICE</text>
+<line x1="48" y1="150" x2="752" y2="150" stroke="#dfe3ea"/>
+<text x="48" y="180" font-size="11" font-weight="700" fill="#a3361f" text-anchor="start" letter-spacing="1.5">BILL TO</text>
+<text x="48" y="202" font-size="14" font-weight="700" fill="#1d2433" text-anchor="start">Dr. Priya Raman</text>
+<text x="48" y="220" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">340 Elm Crescent</text>
+<text x="48" y="238" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">Kitchener, ON N2G 1X8</text>
+<text x="520" y="180" font-size="13" font-weight="400" fill="#566074" text-anchor="start">Invoice no.</text>
+<text x="752" y="180" font-size="13" font-weight="700" fill="#1d2433" text-anchor="end">MP-1192</text>
+<text x="520" y="204" font-size="13" font-weight="400" fill="#566074" text-anchor="start">Issue date</text>
+<text x="752" y="204" font-size="13" font-weight="700" fill="#1d2433" text-anchor="end">May 14, 2025</text>
+<text x="520" y="228" font-size="13" font-weight="400" fill="#566074" text-anchor="start">Currency</text>
+<text x="752" y="228" font-size="13" font-weight="700" fill="#1d2433" text-anchor="end">CAD</text>
+<rect x="48" y="300" width="704" height="34" fill="#a3361f"/>
+<text x="60" y="322" font-size="11" font-weight="700" fill="#fff" text-anchor="start" letter-spacing="1">DESCRIPTION</text>
+<text x="480" y="322" font-size="11" font-weight="700" fill="#fff" text-anchor="end" letter-spacing="1">QTY</text>
+<text x="600" y="322" font-size="11" font-weight="700" fill="#fff" text-anchor="end" letter-spacing="1">UNIT PRICE</text>
+<text x="740" y="322" font-size="11" font-weight="700" fill="#fff" text-anchor="end" letter-spacing="1">AMOUNT</text>
+<text x="60" y="361" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">Site preparation, labour (hrs)</text>
+<text x="480" y="361" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">18</text>
+<text x="600" y="361" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">CA$65.00</text>
+<text x="740" y="361" font-size="14" font-weight="700" fill="#1d2433" text-anchor="end">CA$1,170.00</text>
+<rect x="48" y="378" width="704" height="44" fill="#f5f7fa"/>
+<text x="60" y="405" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">Drywall installation (hrs)</text>
+<text x="480" y="405" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">32</text>
+<text x="600" y="405" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">CA$70.00</text>
+<text x="740" y="405" font-size="14" font-weight="700" fill="#1d2433" text-anchor="end">CA$2,240.00</text>
+<text x="60" y="449" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">Materials and fasteners</text>
+<text x="480" y="449" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">1</text>
+<text x="600" y="449" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">CA$845.30</text>
+<text x="740" y="449" font-size="14" font-weight="700" fill="#1d2433" text-anchor="end">CA$845.30</text>
+<rect x="48" y="466" width="704" height="44" fill="#f5f7fa"/>
+<text x="60" y="493" font-size="14" font-weight="400" fill="#1d2433" text-anchor="start">Municipal permit fee</text>
+<text x="480" y="493" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">1</text>
+<text x="600" y="493" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">CA$120.00</text>
+<text x="740" y="493" font-size="14" font-weight="700" fill="#1d2433" text-anchor="end">CA$120.00</text>
+<line x1="48" y1="510" x2="752" y2="510" stroke="#dfe3ea"/>
+<text x="520" y="544" font-size="14" font-weight="400" fill="#566074" text-anchor="start">Subtotal</text>
+<text x="740" y="544" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">CA$4,375.30</text>
+<text x="520" y="570" font-size="14" font-weight="400" fill="#566074" text-anchor="start">HST (13%)</text>
+<text x="740" y="570" font-size="14" font-weight="400" fill="#1d2433" text-anchor="end">CA$568.79</text>
+<rect x="506" y="578" width="246" height="42" fill="#a3361f" opacity="0.1"/>
+<text x="520" y="606" font-size="16" font-weight="700" fill="#1d2433" text-anchor="start">Total</text>
+<text x="740" y="606" font-size="18" font-weight="700" fill="#a3361f" text-anchor="end">CA$4,944.09</text>
+<text x="48" y="672" font-size="12" font-weight="400" fill="#566074" text-anchor="start">Please quote the invoice number with your payment.</text>
+<line x1="48" y1="810" x2="752" y2="810" stroke="#dfe3ea"/>
+<text x="400" y="838" font-size="11" font-weight="400" fill="#7a8394" text-anchor="middle">Maple &amp; Pine Renovations Inc. · 5-year workmanship warranty on all labour</text>
+</svg>
